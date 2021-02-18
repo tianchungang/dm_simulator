@@ -516,9 +516,9 @@
             var inputForm = "";
             if (children[i].dataType != "JSON") {
                 if (children[i].dataType == "INT32" || children[i].dataType == "DOUBLE" || children[i].dataType == "FLOAT") {
-                    inputForm = ' <input class="form-control" name="' + children[i].treeCode + '" type="number" placeholder="' + placeHolder + '" >';
+                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
                 } else if (children[i].dataType == "TEXT") {
-                    inputForm = ' <input class="form-control" name="' + children[i].treeCode + '" type="text" placeholder="" >';
+                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text" placeholder="" >';
                 }
 
             }
