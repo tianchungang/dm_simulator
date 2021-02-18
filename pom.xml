@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lighting.dm</groupId>
-    <artifactId>mqttTools</artifactId>
+    <artifactId>dm_simulator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mqttTools</name>
-    <description>mqttTools project for Spring Boot</description>
+    <name>dm_simulator</name>
+    <description>dm_simulator project</description>
 
     <properties>
         <java.version>11</java.version>

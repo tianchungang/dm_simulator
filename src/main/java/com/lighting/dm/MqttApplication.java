@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 默认访问地址：
- * http://127.0.0.1:9527/server.html
+ * http://localhost:{server.port}/server.html
  */
 @SpringBootApplication
 public class MqttApplication {
