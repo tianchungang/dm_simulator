@@ -12,7 +12,7 @@
     <artifactId>mqttTools</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mqttTools</name>
-    <description>Demo project for Spring Boot</description>
+    <description>mqttTools project for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>
