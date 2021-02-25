@@ -518,9 +518,12 @@
             if (children[i].dataType != "JSON") {
                 if (children[i].dataType == "INT32" || children[i].dataType == "DOUBLE" || children[i].dataType == "FLOAT") {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
-                } else if (children[i].dataType == "TEXT") {
+                } else if (children[i].dataType == "TEXT"||children[i].dataType == "DATE") {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text" placeholder="" >';
                 }
+                // else if (children[i].dataType == "DATE") {
+                //     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="date" placeholder="YYYY-MM-DD" >';
+                // }
 
             }
 
