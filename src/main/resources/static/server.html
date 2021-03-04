@@ -322,7 +322,7 @@
             $("#deviceSecret").val();
             $("#productKey").val();
             var productId = $(this).val()
-            serverUrl= $("#serverUrl").val() ;
+            serverUrl = $("#serverUrl").val();
             $.ajax({
                 url: "./api/getData",
                 data: {"productId": productId, "serverUrl": serverUrl, "step": "list"},
@@ -351,7 +351,7 @@
             var deviceCode = $("#devices-select").find("option:selected").val();
             var productId = $("#product-select").find("option:selected").val();
             $("#deviceCode").val(deviceCode);
-            serverUrl= $("#serverUrl").val() ;
+            serverUrl = $("#serverUrl").val();
             $.ajax({
                 url: "./api/getData",
                 data: {"productId": productId, "deviceCode": deviceCode, "serverUrl": serverUrl, "step": "single"},
@@ -449,9 +449,9 @@
         });
     });
 
-    function loadProduct(){
+    function loadProduct() {
         var serverUrl = $("#serverUrl").val();
-        if(serverUrl){
+        if (serverUrl) {
             //fill product
             $.ajax({
                 url: "./api/getData",
@@ -467,7 +467,7 @@
                             var productStr = "<option selected>Pls select product</option>";
                             for (var i = 0; i < list.length; i++) {
                                 var product = list[i];
-                                productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='"+product.productKey+"' value='" + product.id + "'> " + product.productName + "(" + product.id + ")" + "</option>";
+                                productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "(" + product.id + ")" + "</option>";
                             }
                             $("#product-select").html(productStr);
                         }
@@ -476,7 +476,7 @@
                     }
                 }
             });
-        }else{
+        } else {
             var productStr = "<option selected>Pls select product</option>";
             $("#product-select").html(productStr);
         }
@@ -517,16 +517,19 @@
             }
 
             var inputForm = "";
+            //类型参考com.lighting.dm.form.model.protocol.DataType
+            //number type
+            var numberType = ["INT32", "DOUBLE", "FLOAT", "BOOLEAN", "BIG_DECIMAL"];
+
+            //text type
+            var textType = ["TEXT", "DATE", "ENUM", "ARRAY", "BITS"];
+
             if (children[i].dataType != "JSON") {
-                if (children[i].dataType == "INT32" || children[i].dataType == "DOUBLE" || children[i].dataType == "FLOAT") {
+                if (numberType.indexOf(children[i].dataType) >= 0) {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
-                } else if (children[i].dataType == "TEXT"||children[i].dataType == "DATE") {
+                } else if (textType.indexOf(children[i].dataType) >= 0) {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text" placeholder="" >';
                 }
-                // else if (children[i].dataType == "DATE") {
-                //     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="date" placeholder="YYYY-MM-DD" >';
-                // }
-
             }
 
             html.push("<td " + style + ">" + blank + children[i].name + "</td>");
