@@ -309,7 +309,7 @@
 
     $(function () {
         loadProduct();
-        var serverUrl ;
+        var serverUrl;
 
         $("#serverUrl").change(function () {
             serverUrl = $("#serverUrl").val();
@@ -322,6 +322,7 @@
             $("#deviceSecret").val();
             $("#productKey").val();
             var productId = $(this).val()
+            serverUrl= $("#serverUrl").val() ;
             $.ajax({
                 url: "./api/getData",
                 data: {"productId": productId, "serverUrl": serverUrl, "step": "list"},
@@ -350,6 +351,7 @@
             var deviceCode = $("#devices-select").find("option:selected").val();
             var productId = $("#product-select").find("option:selected").val();
             $("#deviceCode").val(deviceCode);
+            serverUrl= $("#serverUrl").val() ;
             $.ajax({
                 url: "./api/getData",
                 data: {"productId": productId, "deviceCode": deviceCode, "serverUrl": serverUrl, "step": "single"},
