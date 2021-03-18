@@ -514,6 +514,12 @@
                 if (children[i].spec.step) {
                     placeHolder += "step:" + children[i].spec.step + ";"
                 }
+                if (children[i].spec.formatString) {
+                    placeHolder += "formatString:" + children[i].spec.formatString + ";"
+                }
+                if (children[i].spec.dataType) {
+                    placeHolder += "dataType:" + children[i].spec.dataType + ";"
+                }
             }
 
             var inputForm = "";
@@ -522,13 +528,22 @@
             var numberType = ["INT32", "DOUBLE", "FLOAT", "BOOLEAN", "BIG_DECIMAL"];
 
             //text type
-            var textType = ["TEXT", "DATE", "ENUM", "ARRAY", "BITS"];
+            var textType = ["TEXT", "DATE", "BITS"];
 
             if (children[i].dataType != "JSON") {
                 if (numberType.indexOf(children[i].dataType) >= 0) {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
                 } else if (textType.indexOf(children[i].dataType) >= 0) {
-                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text" placeholder="" >';
+                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >';
+                } else if (children[i].dataType == "ENUM") {
+                    var optionStr = '<option value="">Pls Check </option>';
+                    $.each(children[i].spec.keyValues, function (key, values) {
+                        optionStr += '<option value="' + key + '">' + values + '</option>';
+                        console.log("k=" + key + ",v=" + values);
+                    });
+                    inputForm = '<select class="form-control" name="' + children[i].path + '">' + optionStr + '</select>';
+                } else if (children[i].dataType == "ARRAY") {
+                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >English comma separated, do not add brackets(just for Array)';
                 }
             }
 
