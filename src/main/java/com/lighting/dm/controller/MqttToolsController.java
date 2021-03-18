@@ -51,6 +51,7 @@ public class MqttToolsController {
 
         HashMap dataMap = new HashMap(2);
         String deviceCode = requestParams.getDeviceCode();
+        String arrayFields = requestParams.getArrayFields();
         String deviceSecret = requestParams.getDeviceSecret();
         String productKey = requestParams.getProductKey();
         dataMap.put("deviceCode", deviceCode);
@@ -72,21 +73,26 @@ public class MqttToolsController {
         deviceAttributeData.setProductKey(productKey);
         deviceAttributeData.setUtcTime(System.currentTimeMillis());
 
+        List<String> arrayFieldList = List.of(arrayFields.split(","));
+
         List<DeviceAttribute> items = new ArrayList<>();
         for (String s : data.keySet()) {
             DeviceAttribute deviceAttribute = new DeviceAttribute();
             deviceAttribute.setCode(s);
             deviceAttribute.setName(s);
-            if(data.get(s) == null || StringUtils.isEmpty(data.get(s))){
+            if (data.get(s) == null || StringUtils.isEmpty(data.get(s))) {
                 continue;
             }
-            deviceAttribute.setValue(data.get(s));
-//            deviceAttribute.setValue(Arrays.stream(new Integer[]{5,1,3}).toArray());
+            //list
+            if (arrayFieldList.contains(s)) {
+                deviceAttribute.setValue(List.of(((String) data.get(s)).split(",")));
+            } else {
+                deviceAttribute.setValue(data.get(s));
+            }
             items.add(deviceAttribute);
-
         }
         deviceAttributeData.setItems(items);
-        new Publisher(endPoint, deviceCode,productKey, token).publish(new Gson().toJson(deviceAttributeData));
+        new Publisher(endPoint, deviceCode, productKey, token).publish(new Gson().toJson(deviceAttributeData));
         return json;
     }
 
@@ -100,7 +106,7 @@ public class MqttToolsController {
     public static void main(String[] args) {
         final byte[] encode = Base64.getEncoder().encode("guest:guest".getBytes());
         try {
-            System.out.println("encode = " + new String(encode,"utf-8"));
+            System.out.println("encode = " + new String(encode, "utf-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

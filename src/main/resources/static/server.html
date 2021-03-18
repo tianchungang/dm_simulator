@@ -242,6 +242,7 @@
                             </div>
                         </div>
                         <form id="dataForm">
+                            <input id="arrayFields" type="hidden">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="tile">
@@ -428,12 +429,14 @@
             var formData = $("#dataForm").serializeJson();
             var deviceCode = $("#deviceCode").val();
             var deviceSecret = $("#deviceSecret").val();
+            var arrayFields = $("#arrayFields").val();
             var productKey = $("#product-select").find("option:selected").attr("productKey");
 
             $.ajax({
                 url: "./api/publish",
                 data: JSON.stringify({
                     deviceCode: deviceCode,
+                    arrayFields: arrayFields,
                     productKey: productKey,
                     deviceSecret: deviceSecret,
                     serverUrl: serverUrl,
@@ -530,6 +533,8 @@
             //text type
             var textType = ["TEXT", "DATE", "BITS"];
 
+            var arrayFields=$("#arrayFields").val();
+
             if (children[i].dataType != "JSON") {
                 if (numberType.indexOf(children[i].dataType) >= 0) {
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
@@ -543,6 +548,8 @@
                     });
                     inputForm = '<select class="form-control" name="' + children[i].path + '">' + optionStr + '</select>';
                 } else if (children[i].dataType == "ARRAY") {
+                    arrayFields+=children[i].path+",";
+                    $("#arrayFields").val(arrayFields);
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >English comma separated, do not add brackets(just for Array)';
                 }
             }

@@ -9,5 +9,6 @@ public class RequestParams {
     private String productKey;
     private String deviceSecret;
     private String serverUrl;
+    private String arrayFields;
     private Map<String,Object> data;
 }
