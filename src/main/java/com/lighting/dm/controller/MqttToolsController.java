@@ -77,10 +77,11 @@ public class MqttToolsController {
             DeviceAttribute deviceAttribute = new DeviceAttribute();
             deviceAttribute.setCode(s);
             deviceAttribute.setName(s);
-            deviceAttribute.setValue(data.get(s));
             if(data.get(s) == null || StringUtils.isEmpty(data.get(s))){
                 continue;
             }
+            deviceAttribute.setValue(data.get(s));
+//            deviceAttribute.setValue(Arrays.stream(new Integer[]{5,1,3}).toArray());
             items.add(deviceAttribute);
 
         }
