@@ -542,9 +542,9 @@
                     inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >';
                 } else if (children[i].dataType == "ENUM") {
                     var optionStr = '<option value="">Pls Check </option>';
-                    $.each(children[i].spec.keyValues, function (key, values) {
-                        optionStr += '<option value="' + key + '">' + values + '</option>';
-                        console.log("k=" + key + ",v=" + values);
+                    $.each(children[i].spec.keyValues, function (k, v) {
+                        optionStr += '<option value="' + k + '">' + k + '</option>';
+                        console.log("k=" + k + ",v=" + v);
                     });
                     inputForm = '<select class="form-control" name="' + children[i].path + '">' + optionStr + '</select>';
                 } else if (children[i].dataType == "ARRAY") {
