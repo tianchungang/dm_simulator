@@ -12,5 +12,4 @@ public class DeviceAttributeData {
     private Long utcTime;
     private String deviceType;
     private List<DeviceAttribute> items;
-
 }

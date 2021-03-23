@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Vali is a responsive and free dashboard theme/template built with Bootstrap 4, SASS and PUG.js.">
+<html lang="en">
+<head>
+    <meta name="description"
+          content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:site" content="@pratikborsadiya">
@@ -12,113 +10,167 @@
     <!-- Open Graph Meta-->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Vali Admin">
-    <meta property="og:title" content="Vali Admin - Free Bootstrap 4 Dashboard Template">
-    <meta property="og:url" content="http://pratikborsadiya.in/vali-admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
-    <meta property="og:description" content="Vali is a responsive and free dashboard theme/template built with Bootstrap 4, SASS and PUG.js.">
-    <title>Vali Admin - Free Bootstrap 4 Dashboard Template</title>
+    <meta property="og:description"
+          content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Mqtt Test</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-  </head>
-  <body class="landing-page">
-    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <symbol id="icon-chart" viewbox="0 0 32 32">
-          <title>chart</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 26.667v-13.333"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 26.667v-21.333"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 26.667v-8"></path>
-        </symbol>
-        <symbol id="icon-globe" viewbox="0 0 32 32">
-          <title>globe</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M29.333 16c0 7.364-5.97 13.333-13.333 13.333s-13.333-5.97-13.333-13.333c0-7.364 5.97-13.333 13.333-13.333s13.333 5.97 13.333 13.333z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 16h26.667"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 2.667c3.216 3.512 5.223 8.178 5.333 13.311l0 0.022c-0.111 5.155-2.117 9.822-5.347 13.349l0.014-0.015c-3.216-3.512-5.223-8.178-5.333-13.311l-0-0.022c0.111-5.155 2.117-9.822 5.347-13.349l-0.014 0.015z"></path>
-        </symbol>
-        <symbol id="icon-grid" viewbox="0 0 32 32">
-          <title>grid</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 4h9.333v9.333h-9.333v-9.333z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M18.667 4h9.333v9.333h-9.333v-9.333z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M18.667 18.667h9.333v9.333h-9.333v-9.333z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 18.667h9.333v9.333h-9.333v-9.333z"></path>
-        </symbol>
-        <symbol id="icon-layout" viewbox="0 0 32 32">
-          <title>layout</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M6.667 4h18.667c1.473 0 2.667 1.194 2.667 2.667v18.667c0 1.473-1.194 2.667-2.667 2.667h-18.667c-1.473 0-2.667-1.194-2.667-2.667v-18.667c0-1.473 1.194-2.667 2.667-2.667z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 12h24"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M12 28v-16"></path>
-        </symbol>
-        <symbol id="icon-smartphone" viewbox="0 0 32 32">
-          <title>smartphone</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 2.667h13.333c1.473 0 2.667 1.194 2.667 2.667v21.333c0 1.473-1.194 2.667-2.667 2.667h-13.333c-1.473 0-2.667-1.194-2.667-2.667v-21.333c0-1.473 1.194-2.667 2.667-2.667z"></path>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 24v0"></path>
-        </symbol>
-        <symbol id="icon-zap" viewbox="0 0 32 32">
-          <title>zap</title>
-          <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M17.333 2.667l-13.333 16h12l-1.333 10.667 13.333-16h-12l1.333-10.667z"></path>
-        </symbol>
-      </defs>
-    </svg>
-    <section class="landing-hero">
-      <div class="landing-hero-overlay"></div>
-      <div class="landing-hero-content">
-        <h1 class="landing-hero-title">Vali Admin - A Free Bootstrap 4 Dashboard Template</h1>
-        <p class="landing-hero-description">Built with PugJS, SASS, and Bootstrap 4</p>
-        <div><a class="btn btn-primary mr-4" href="dashboard.html">Demo</a><a class="btn btn-primary" href="https://github.com/pratikborsadiya/vali-admin" target="_blank" rel="noopener">GitHub</a></div><img class="landing-hero-banner" src="images/banner.jpg">
-      </div>
-    </section>
-    <section class="features">
-      <h1 class="features-title">Features</h1>
-      <div class="features-cards">
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-globe"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Free to use and open-source</p>
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body class="app sidebar-mini  sidenav-toggled">
+<!-- Navbar-->
+<header class="app-header"><a class="app-header__logo" href="index.html">D.M Simulator</a>
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                    aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+        <li class="app-search">
+            <input class="app-search__input" type="search" placeholder="Search">
+            <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+    </ul>
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <ul class="app-menu active">
+        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
+                class="app-menu__label">Dashboard</span></a></li>
+        <li class="treeview is-expanded"><a class="app-menu__item " href="#" data-toggle="treeview"><i
+                class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Device Managerment</span><i
+                class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu ">
+                <li><a class="treeview-item active" href="server.html"><i class="icon fa fa-circle-o"></i>MQ
+                    ThingModel</a></li>
+                <li><a class="treeview-item" href="index.html"><i class="icon fa fa-circle-o"></i> MQ PUBLISH</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+<main class="app-content">
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-dashboard"></i> Mqtt Test</h1>
+            <p>For simulating the device to report data</p>
         </div>
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-smartphone"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Beautiful and mobile responsive</p>
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="#">Mqtt Test</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="form-group col-lg-9">
+                                <label for="exampleInputEmail1">Server Url</label>
+                                <input class="form-control" id="serverUrl" name="serverUrl" type="text"
+                                       aria-describedby="serverUrl" placeholder="Enter ServerUrl"
+                                       value="rojodev.iotspacex.com">
+                                <!-- "rojodev.iotspacex.com" http://127.0.0.1:8080-->
+                            </div>
+                            <div class="form-group col-lg-3">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-9">
+                                <label for="deviceCode">API URL</label>
+                                <input class="form-control" id="apiUrl" name="apiUrl" type="text"
+                                       aria-describedby="apiUrl"
+                                       placeholder="api url for example:/api/deviceDataTwins/77800022"
+                                       value="">
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <a class="btn btn-primary icon-btn" id="getData" type="button" style="margin-top:30px ">Get
+                                    Data</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="ProductId">Product(Released Product who's NODE_TYPE is
+                                    DIRECT_CONNECT)</label>
+                                <select class="browser-default custom-select" id="product-select">
+                                    <option selected>Pls select productId</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="devices">Device List</label>
+                                <select class="browser-default custom-select" id="devices-select">
+                                    <option selected>Pls select device</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="deviceCode">Device code</label>
+                                <input class="form-control" id="deviceCode" name="deviceCode" type="text"
+                                       aria-describedby="deviceCode" placeholder="Enter Device Code"
+                                       value="" disabled="disabled">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="deviceCode">Device secret</label>
+                                <input class="form-control" id="deviceSecret" name="deviceSecret" type="text"
+                                       aria-describedby="deviceSecret" placeholder="Enter Device Secret"
+                                       value="" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-9">
+                                <label for="topics">Topics List(PUBLISH)</label>
+                                <select class="browser-default custom-select" id="topics-select">
+                                    <option selected>Pls select topics</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <a class="btn btn-primary icon-btn" id="sendMq" type="button"
+                                   style="margin-top:30px ">Send MQ</a>
+                            </div>
+                        </div>
+
+                        <form id="dataForm">
+                            <input id="arrayFields" type="hidden">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="tile">
+                                        <div class="form-group">
+                                            <label class="control-label">Payload</label>
+                                            <textarea id="payload" class="form-control" rows="11"
+                                                      placeholder="Enter your address">
+
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
         </div>
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-zap"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Built with Bootstrap 4, SASS and PUG.js</p>
-        </div>
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-chart"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Chart.js integration to display responsive charts</p>
-        </div>
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-layout"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Seven pre built pages including login, user profile and print friendly invoice page</p>
-        </div>
-        <div class="features-card">
-          <div class="feature-icon-backdrop">
-            <svg class="feature-icon">
-              <use xlink:href="#icon-grid"></use>
-            </svg>
-          </div>
-          <p class="feature-description">Data tables with sort, search and paginate functions</p>
-        </div>
-      </div>
-    </section>
-    <footer class="landing-footer">Created by </footer>
-  </body>
+    </div>
+</main>
+<!-- Essential javascripts for application to work-->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="js/plugins/pace.min.js"></script>
+<!-- Page specific javascripts-->
+<script type="text/javascript" src="js/plugins/chart.js"></script>
+<script type="text/javascript" src="js/custom/sim.js"></script>
+</body>
 </html>
+

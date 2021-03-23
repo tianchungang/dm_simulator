@@ -9,19 +9,30 @@ import com.lighting.dm.mqtt.Publisher;
 import com.lighting.dm.utils.Constants;
 import com.lighting.dm.utils.HttpUtils;
 import com.lighting.dm.utils.RequestPair;
-import org.springframework.util.StringUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.UnsupportedEncodingException;
+import javax.servlet.http.HttpServletRequest;
 import java.text.MessageFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * @author Administrator
+ */
+@Slf4j
 @RestController
-public class MqttToolsController {
+public class DmSimController {
+    @Autowired
+    private HttpServletRequest request;
+
     @RequestMapping(value = "/api/getData", method = RequestMethod.POST)
     @ResponseBody
     public String getData(String serverUrl, String deviceCode, String productId, String step) throws Exception {
-
         serverUrl = getServerUrl(serverUrl);
         if (step.equals(RequestPair.LIST.getType())) {
             serverUrl += RequestPair.LIST.getUrl();
@@ -35,9 +46,21 @@ public class MqttToolsController {
         } else if (step.equals(RequestPair.PRODUCT.getType())) {
             serverUrl += RequestPair.PRODUCT.getUrl();
             serverUrl = MessageFormat.format(serverUrl, deviceCode);
+        } else if (step.equals(RequestPair.TOPIC.getType())) {
+            String productKey = request.getParameter("productKey");
+            serverUrl += RequestPair.TOPIC.getUrl();
+            serverUrl = MessageFormat.format(serverUrl, productId, productKey, deviceCode);
+        } else if (step.equals(RequestPair.CUSTOM_API.getType())) {
+            String apiUrl = request.getParameter("apiUrl");
+            serverUrl += apiUrl;
+        } else if (step.equals(RequestPair.PUBLISH_TOPIC.getType())) {
+            String topic = request.getParameter("topic");
+            String payload = request.getParameter("payload");
+            serverUrl += RequestPair.PUBLISH_TOPIC.getUrl();
+            serverUrl = MessageFormat.format(serverUrl, topic, payload);
         }
         String responseStr = HttpUtils.getHttps(serverUrl);
-        System.out.println(responseStr);
+        log.info(responseStr);
         return responseStr;
     }
 
@@ -54,6 +77,8 @@ public class MqttToolsController {
         String arrayFields = requestParams.getArrayFields();
         String deviceSecret = requestParams.getDeviceSecret();
         String productKey = requestParams.getProductKey();
+        String topic = requestParams.getTopic();
+        String payload = requestParams.getPayload();
         dataMap.put("deviceCode", deviceCode);
         dataMap.put("secret", deviceSecret);
 
@@ -66,33 +91,37 @@ public class MqttToolsController {
         String token = dmMqttRegisterMetaVo.getPassword();
         String endPoint = dmMqttRegisterMetaVo.getMqttEndpoint();
 
-        Map<String, Object> data = requestParams.getData();
-        DeviceAttributeData deviceAttributeData = new DeviceAttributeData();
-        deviceAttributeData.setIotId(deviceCode);
-        deviceAttributeData.setDeviceSecret(deviceSecret);
-        deviceAttributeData.setProductKey(productKey);
-        deviceAttributeData.setUtcTime(System.currentTimeMillis());
+        if (StringUtils.isNotEmpty(topic)) {
+            new Publisher(endPoint, deviceCode, productKey, token).publish(topic, payload);
+        } else {
+            Map<String, Object> data = requestParams.getData();
+            DeviceAttributeData deviceAttributeData = new DeviceAttributeData();
+            deviceAttributeData.setIotId(deviceCode);
+            deviceAttributeData.setDeviceSecret(deviceSecret);
+            deviceAttributeData.setProductKey(productKey);
+            deviceAttributeData.setUtcTime(System.currentTimeMillis());
 
-        List<String> arrayFieldList = List.of(arrayFields.split(","));
+            List<String> arrayFieldList = List.of(arrayFields.split(","));
 
-        List<DeviceAttribute> items = new ArrayList<>();
-        for (String s : data.keySet()) {
-            DeviceAttribute deviceAttribute = new DeviceAttribute();
-            deviceAttribute.setCode(s);
-            deviceAttribute.setName(s);
-            if (data.get(s) == null || StringUtils.isEmpty(data.get(s))) {
-                continue;
+            List<DeviceAttribute> items = new ArrayList<>();
+            for (String s : data.keySet()) {
+                DeviceAttribute deviceAttribute = new DeviceAttribute();
+                deviceAttribute.setCode(s);
+                deviceAttribute.setName(s);
+                if (data.get(s) == null || StringUtils.isEmpty(data.get(s) + "")) {
+                    continue;
+                }
+                //list
+                if (arrayFieldList.contains(s)) {
+                    deviceAttribute.setValue(List.of(((String) data.get(s)).split(",")));
+                } else {
+                    deviceAttribute.setValue(data.get(s));
+                }
+                items.add(deviceAttribute);
             }
-            //list
-            if (arrayFieldList.contains(s)) {
-                deviceAttribute.setValue(List.of(((String) data.get(s)).split(",")));
-            } else {
-                deviceAttribute.setValue(data.get(s));
-            }
-            items.add(deviceAttribute);
+            deviceAttributeData.setItems(items);
+            new Publisher(endPoint, deviceCode, productKey, token).publish(new Gson().toJson(deviceAttributeData));
         }
-        deviceAttributeData.setItems(items);
-        new Publisher(endPoint, deviceCode, productKey, token).publish(new Gson().toJson(deviceAttributeData));
         return json;
     }
 
@@ -101,14 +130,5 @@ public class MqttToolsController {
             serverUrl = "https://" + serverUrl;
         }
         return serverUrl;
-    }
-
-    public static void main(String[] args) {
-        final byte[] encode = Base64.getEncoder().encode("guest:guest".getBytes());
-        try {
-            System.out.println("encode = " + new String(encode, "utf-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
     }
 }

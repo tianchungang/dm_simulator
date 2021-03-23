@@ -35,78 +35,6 @@
             <input class="app-search__input" type="search" placeholder="Search">
             <button class="app-search__button"><i class="fa fa-search"></i></button>
         </li>
-        <!--Notification Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i
-                class="fa fa-bell-o fa-lg"></i></a>
-            <ul class="app-notification dropdown-menu dropdown-menu-right">
-                <li class="app-notification__title">You have 4 new notifications.</li>
-                <div class="app-notification__content">
-                    <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span
-                            class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i
-                            class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                        <div>
-                            <p class="app-notification__message">Lisa sent you a mail</p>
-                            <p class="app-notification__meta">2 min ago</p>
-                        </div>
-                    </a></li>
-                    <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span
-                            class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i
-                            class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                        <div>
-                            <p class="app-notification__message">Mail server not working</p>
-                            <p class="app-notification__meta">5 min ago</p>
-                        </div>
-                    </a></li>
-                    <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span
-                            class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-success"></i><i
-                            class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                        <div>
-                            <p class="app-notification__message">Transaction complete</p>
-                            <p class="app-notification__meta">2 days ago</p>
-                        </div>
-                    </a></li>
-                    <div class="app-notification__content">
-                        <li><a class="app-notification__item" href="javascript:;"><span
-                                class="app-notification__icon"><span class="fa-stack fa-lg"><i
-                                class="fa fa-circle fa-stack-2x text-primary"></i><i
-                                class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-                            <div>
-                                <p class="app-notification__message">Lisa sent you a mail</p>
-                                <p class="app-notification__meta">2 min ago</p>
-                            </div>
-                        </a></li>
-                        <li><a class="app-notification__item" href="javascript:;"><span
-                                class="app-notification__icon"><span class="fa-stack fa-lg"><i
-                                class="fa fa-circle fa-stack-2x text-danger"></i><i
-                                class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
-                            <div>
-                                <p class="app-notification__message">Mail server not working</p>
-                                <p class="app-notification__meta">5 min ago</p>
-                            </div>
-                        </a></li>
-                        <li><a class="app-notification__item" href="javascript:;"><span
-                                class="app-notification__icon"><span class="fa-stack fa-lg"><i
-                                class="fa fa-circle fa-stack-2x text-success"></i><i
-                                class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
-                            <div>
-                                <p class="app-notification__message">Transaction complete</p>
-                                <p class="app-notification__meta">2 days ago</p>
-                            </div>
-                        </a></li>
-                    </div>
-                </div>
-                <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-            </ul>
-        </li>
-        <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                class="fa fa-user fa-lg"></i></a>
-            <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
-            </ul>
-        </li>
     </ul>
 </header>
 <!-- Sidebar menu-->
@@ -118,71 +46,17 @@
     <!--            <p class="app-sidebar__user-designation">Frontend Developer</p>-->
     <!--        </div>-->
     <!--    </div>-->
-    <ul class="app-menu">
-        <li><a class="app-menu__item " href="dashboard.html"><i class="app-menu__icon fa fa-dashboard"></i><span
+    <ul class="app-menu active">
+        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
                 class="app-menu__label">Dashboard</span></a></li>
         <li class="treeview is-expanded"><a class="app-menu__item " href="#" data-toggle="treeview"><i
                 class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Device Managerment</span><i
                 class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu ">
-                <li><a class="treeview-item active" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i>
-                    Mqtt Test</a></li>
-                <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank"
-                       rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
-                <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
-                <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+                <li><a class="treeview-item active" href="server.html"><i class="icon fa fa-circle-o"></i>MQ ThingModel</a></li>
+                <li><a class="treeview-item" href="index.html"><i class="icon fa fa-circle-o"></i> MQ PUBLISH</a></li>
             </ul>
         </li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                class="app-menu__label">Charts</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i
-                class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form
-                    Components</a></li>
-                <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom
-                    Components</a></li>
-                <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form
-                    Samples</a></li>
-                <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form
-                    Notifications</a></li>
-            </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i
-                class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic
-                    Tables</a></li>
-                <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data
-                    Tables</a></li>
-            </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i
-                class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i> Lockscreen
-                    Page</a></li>
-                <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i> User Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-invoice.html"><i class="icon fa fa-circle-o"></i> Invoice
-                    Page</a></li>
-                <li><a class="treeview-item" href="page-calendar.html"><i class="icon fa fa-circle-o"></i> Calendar Page</a>
-                </li>
-                <li><a class="treeview-item" href="page-mailbox.html"><i class="icon fa fa-circle-o"></i> Mailbox</a>
-                </li>
-                <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a>
-                </li>
-            </ul>
-        </li>
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span
-                class="app-menu__label">Docs</span></a></li>
     </ul>
 </aside>
 <main class="app-content">
@@ -202,43 +76,48 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Server Url</label>
-                            <input class="form-control" id="serverUrl" name="serverUrl" type="text"
-                                   aria-describedby="serverUrl" placeholder="Enter ServerUrl"
-                                   value="rojodev.iotspacex.com">
-                            <!-- "rojodev.iotspacex.com" http://127.0.0.1:8080-->
-                        </div>
-                        <div class="form-group">
-                            <label for="ProductId">Product(Released Product who's NODE_TYPE is DIRECT_CONNECT)</label>
-                            <select class="browser-default custom-select" id="product-select">
-                                <option selected>Pls select productId</option>
-                            </select>
-
-
-                        </div>
-                        <div class="form-group">
-                            <label for="devices">Device List</label>
-                            <select class="browser-default custom-select" id="devices-select">
-                                <option selected>Pls select device</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="deviceCode">Device code</label>
-                            <input class="form-control" id="deviceCode" name="deviceCode" type="text"
-                                   aria-describedby="deviceCode" placeholder="Enter Device Code"
-                                   value="" disabled="disabled">
-                        </div>
                         <div class="row">
                             <div class="form-group col-lg-9">
-                                <label for="deviceCode">Device secret</label>
-                                <input class="form-control" id="deviceSecret" name="deviceSecret" type="text"
-                                       aria-describedby="deviceSecret" placeholder="Enter Device Secret"
-                                       value="" disabled="disabled">
+                                <label for="exampleInputEmail1">Server Url</label>
+                                <input class="form-control" id="serverUrl" name="serverUrl" type="text"
+                                       aria-describedby="serverUrl" placeholder="Enter ServerUrl"
+                                       value="rojodev.iotspacex.com">
+                                <!-- "rojodev.iotspacex.com" http://127.0.0.1:8080-->
                             </div>
                             <div class="form-group col-lg-3">
                                 <a class="btn btn-primary icon-btn" id="getArribute" type="button"
                                    style="margin-top:30px ">Get Properties</a>
+                                <a class="btn btn-primary icon-btn" id="submit" type="button"
+                                   style="margin-top:30px ">Send MQ</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="ProductId">Product(Released Product who's NODE_TYPE is DIRECT_CONNECT)</label>
+                                <select class="browser-default custom-select" id="product-select">
+                                    <option selected>Pls select productId</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="devices">Device List</label>
+                                <select class="browser-default custom-select" id="devices-select">
+                                    <option selected>Pls select device</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="deviceCode">Device code</label>
+                                <input class="form-control" id="deviceCode" name="deviceCode" type="text"
+                                       aria-describedby="deviceCode" placeholder="Enter Device Code"
+                                       value="" disabled="disabled">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="deviceCode">Device secret</label>
+                                <input class="form-control" id="deviceSecret" name="deviceSecret" type="text"
+                                       aria-describedby="deviceSecret" placeholder="Enter Device Secret"
+                                       value="" disabled="disabled">
                             </div>
                         </div>
                         <form id="dataForm">
@@ -264,10 +143,6 @@
                                 </div>
                             </div>
 
-                            <div class="tile-footer" style="text-align:right;">
-                                <button class="btn btn-primary" type="button" id="submit" disabled="disabled">Submit
-                                </button>
-                            </div>
                         </form>
                     </div>
                     <div class="col-lg-2"></div>
@@ -287,285 +162,7 @@
 <script src="js/plugins/pace.min.js"></script>
 <!-- Page specific javascripts-->
 <script type="text/javascript" src="js/plugins/chart.js"></script>
-<script type="text/javascript">
-    (function ($) {
-        $.fn.serializeJson = function () {
-            var serializeObj = {};
-            var array = this.serializeArray();
-            var str = this.serialize();
-            $(array).each(function () {
-                if (serializeObj[this.name]) {
-                    if ($.isArray(serializeObj[this.name])) {
-                        serializeObj[this.name].push(this.value);
-                    } else {
-                        serializeObj[this.name] = [serializeObj[this.name], this.value];
-                    }
-                } else {
-                    serializeObj[this.name] = this.value;
-                }
-            });
-            return serializeObj;
-        };
-    })(jQuery);
-
-    $(function () {
-        loadProduct();
-        var serverUrl;
-
-        $("#serverUrl").change(function () {
-            serverUrl = $("#serverUrl").val();
-            loadProduct();
-        });
-
-
-        $("#product-select").change(function () {
-            $("#deviceCode").val();
-            $("#deviceSecret").val();
-            $("#productKey").val();
-            var productId = $(this).val()
-            serverUrl = $("#serverUrl").val();
-            $.ajax({
-                url: "./api/getData",
-                data: {"productId": productId, "serverUrl": serverUrl, "step": "list"},
-                type: "POST",
-                dataType: "json",
-                success: function (result) {
-                    if (result.success) {
-                        var data = result.data;
-                        if (data.list) {
-                            var list = data.list;
-                            var data = result.data;
-                            var deviceStr = "<option selected>Pls select device</option>";
-                            for (var i = 0; i < list.length; i++) {
-                                var device = list[i];
-                                deviceStr += "<option  data-icon='glyphicon glyphicon-heart' data-tokens='" + i + "' value='" + device.deviceCode + "'> " + device.deviceName + "(" + device.id + ")" + "</option>";
-                            }
-                            $("#devices-select").html(deviceStr);
-                        }
-                    } else {
-                        alert(responseData.message);
-                    }
-                }
-            });
-        });
-        $("#devices-select").change(function () {
-            var deviceCode = $("#devices-select").find("option:selected").val();
-            var productId = $("#product-select").find("option:selected").val();
-            $("#deviceCode").val(deviceCode);
-            serverUrl = $("#serverUrl").val();
-            $.ajax({
-                url: "./api/getData",
-                data: {"productId": productId, "deviceCode": deviceCode, "serverUrl": serverUrl, "step": "single"},
-                type: "POST",
-                dataType: "json",
-                success: function (result) {
-                    if (result.success) {
-                        $("#deviceSecret").val(result.data.deviceSecret);
-                    } else {
-                        alert(responseData.message);
-                    }
-                }
-            });
-        });
-
-        $("#getArribute").click(function () {
-            var deviceCode = $("#deviceCode").val();
-            var deviceSecret = $("#deviceSecret").val();
-            if (deviceCode == "" || deviceSecret == "") {
-                alert('Pls select device and device ');
-                return false;
-            }
-            $.ajax({
-                url: "./api/getData",
-                data: {
-                    "deviceCode": deviceCode,
-                    "deviceSecret": deviceSecret,
-                    "serverUrl": serverUrl,
-                    "step": "thingModel"
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (responseData) {
-                    if (responseData.success) {
-                        var data = responseData.data;
-                        if (data.properties) {
-                            var properties = data.properties;
-
-                            var tree = {};
-
-                            for (var i = 0; i < properties.length; i++) {
-                                var property = properties[i];
-                                if (!property.parentId) {
-                                    if (!tree["0"]) {
-                                        tree["0"] = [];
-                                    }
-                                    tree["0"].push(property);
-                                } else {
-                                    if (!tree[property.parentId]) {
-                                        tree[property.parentId] = [];
-                                    }
-                                    tree[property.parentId].push(property);
-                                }
-                            }
-
-                            var html = [];
-                            console.log("tree=" + tree);
-                            generateRows("0", tree, html);
-                            $("#tableBody").html(html.join(""));
-
-                            $("#submit").removeAttr("disabled");
-                        }
-
-                    } else {
-                        alert(responseData.message);
-                    }
-                }
-            });
-
-
-        });
-
-        $("#submit").click(function () {
-            var formData = $("#dataForm").serializeJson();
-            var deviceCode = $("#deviceCode").val();
-            var deviceSecret = $("#deviceSecret").val();
-            var arrayFields = $("#arrayFields").val();
-            var productKey = $("#product-select").find("option:selected").attr("productKey");
-
-            $.ajax({
-                url: "./api/publish",
-                data: JSON.stringify({
-                    deviceCode: deviceCode,
-                    arrayFields: arrayFields,
-                    productKey: productKey,
-                    deviceSecret: deviceSecret,
-                    serverUrl: serverUrl,
-                    data: formData
-                }),
-                type: "POST",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    alert("success!");
-                }
-            })
-        });
-    });
-
-    function loadProduct() {
-        var serverUrl = $("#serverUrl").val();
-        if (serverUrl) {
-            //fill product
-            $.ajax({
-                url: "./api/getData",
-                data: {"serverUrl": serverUrl, "step": "product"},
-                type: "POST",
-                dataType: "json",
-                success: function (result) {
-                    if (result.success) {
-                        var data = result.data;
-                        if (data.list) {
-                            var list = data.list;
-                            var data = result.data;
-                            var productStr = "<option selected>Pls select product</option>";
-                            for (var i = 0; i < list.length; i++) {
-                                var product = list[i];
-                                productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "(" + product.id + ")" + "</option>";
-                            }
-                            $("#product-select").html(productStr);
-                        }
-                    } else {
-                        alert(responseData.message);
-                    }
-                }
-            });
-        } else {
-            var productStr = "<option selected>Pls select product</option>";
-            $("#product-select").html(productStr);
-        }
-
-    }
-
-
-    function generateRows(id, treedata, html) {
-        var children = treedata[id];
-        for (var i = 0; i < children.length; i++) {
-            html.push("<tr>");
-            var style = '';
-            if (children[i].dataType == 'JSON') {
-                style = " style='font-weight:bold' ";
-            }
-            var blank = "";
-            if (children[i].treeCode) {
-                for (var j = 0; j < children[i].treeCode.split(".").length - 1; j++) {
-                    blank += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                }
-            }
-            var unit = "";
-            if (children[i].spec && children[i].spec.unit) {
-                unit = children[i].spec.unit;
-            }
-
-            var placeHolder = "";
-            if (children[i].spec) {
-                if (children[i].spec.min) {
-                    placeHolder += "min:" + children[i].spec.min + ";"
-                }
-                if (children[i].spec.max) {
-                    placeHolder += "max:" + children[i].spec.max + ";"
-                }
-                if (children[i].spec.step) {
-                    placeHolder += "step:" + children[i].spec.step + ";"
-                }
-                if (children[i].spec.formatString) {
-                    placeHolder += "formatString:" + children[i].spec.formatString + ";"
-                }
-                if (children[i].spec.dataType) {
-                    placeHolder += "dataType:" + children[i].spec.dataType + ";"
-                }
-            }
-
-            var inputForm = "";
-            //类型参考com.lighting.dm.form.model.protocol.DataType
-            //number type
-            var numberType = ["INT32", "DOUBLE", "FLOAT", "BOOLEAN", "BIG_DECIMAL"];
-
-            //text type
-            var textType = ["TEXT", "DATE", "BITS"];
-
-            var arrayFields=$("#arrayFields").val();
-
-            if (children[i].dataType != "JSON") {
-                if (numberType.indexOf(children[i].dataType) >= 0) {
-                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="number" placeholder="' + placeHolder + '" >';
-                } else if (textType.indexOf(children[i].dataType) >= 0) {
-                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >';
-                } else if (children[i].dataType == "ENUM") {
-                    var optionStr = '<option value="">Pls Check </option>';
-                    $.each(children[i].spec.keyValues, function (k, v) {
-                        optionStr += '<option value="' + k + '">' + k + '</option>';
-                        console.log("k=" + k + ",v=" + v);
-                    });
-                    inputForm = '<select class="form-control" name="' + children[i].path + '">' + optionStr + '</select>';
-                } else if (children[i].dataType == "ARRAY") {
-                    arrayFields+=children[i].path+",";
-                    $("#arrayFields").val(arrayFields);
-                    inputForm = ' <input class="form-control" name="' + children[i].path + '" type="text"  placeholder="' + placeHolder + '" >English comma separated, do not add brackets(just for Array)';
-                }
-            }
-
-            html.push("<td " + style + ">" + blank + children[i].name + "</td>");
-            html.push("<td>" + inputForm + "</td>");
-            html.push("<td>" + unit + "</td>");
-            html.push("</tr>");
-
-            if (treedata[children[i].id]) {
-                html.push(generateRows(children[i].id, treedata, html))
-            }
-        }
-    }
-</script>
-
+<script type="text/javascript" src="js/custom/sim.js"></script>
 </body>
 </html>
 

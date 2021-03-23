@@ -5,6 +5,9 @@ public enum RequestPair {
     LIST("list", Constants.GET_DEVICES_LIST_URL),
     PRODUCT("product", Constants.GET_PRODUCT_LIST_URL),
     SINGLE("single", Constants.GET_SINGLE_DEVICE_URL),
+    TOPIC("topic", Constants.GET_TOPICS_URL),
+    PUBLISH_TOPIC("publish_topic", Constants.GET_PUBLISH_TOPIC_URL),
+    CUSTOM_API("custom_api", null),
     THING_MODEL("thingModel", Constants.GET_DEVICE_THING_MODEL_URL);
 
     private String type;
