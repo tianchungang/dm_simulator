@@ -200,12 +200,12 @@ $(function () {
     $("#sendMq").click(function () {
         var serverUrl = $("#serverUrl").val();
 
-        const apiUrl = $("#apiUrl").val();
+       /* const apiUrl = $("#apiUrl").val();
         if (apiUrl == null || apiUrl == '') {
             $(apiUrl).focus();
             alert("API URL CAN'T BE NULL!");
             return;
-        }
+        }*/
 
         const payload = $("#payload").val();
         if (payload == null || payload == '') {
