@@ -261,7 +261,7 @@ function loadProduct() {
                         var productStr = "<option selected>Pls select product</option>";
                         for (var i = 0; i < list.length; i++) {
                             var product = list[i];
-                            productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "-(" + product.id + ")-" + "(" + product.productKey + ")-(" + product.deviceCount + ")" + "</option>";
+                            productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "-(" + product.id + ")-"+ "-(" + product.nodeType + ")-"+ "-(" + product.status + ")-" + "(" + product.productKey + ")-(" + product.deviceCount + ")" + "</option>";
                         }
                         $("#product-select").html(productStr);
                     }
