@@ -30,8 +30,7 @@ public class DmSimController {
     @Autowired
     private HttpServletRequest request;
 
-    @RequestMapping(value = "/api/getData", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping(value = "/api/getData")
     public String getData(String serverUrl, String deviceCode, String productId, String step) throws Exception {
         serverUrl = getServerUrl(serverUrl);
         if (step.equals(RequestPair.LIST.getType())) {
@@ -64,8 +63,7 @@ public class DmSimController {
         return responseStr;
     }
 
-    @RequestMapping(value = "/api/publish", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping(value = "/api/publish")
     public String publish(@RequestBody RequestParams requestParams) throws Exception {
 
         String serverUrl = getServerUrl(requestParams.getServerUrl());
@@ -73,12 +71,16 @@ public class DmSimController {
         serverUrl += Constants.DEVICE_AUTH_URL;
 
         HashMap dataMap = new HashMap(2);
-        String deviceCode = requestParams.getDeviceCode();
+
         String arrayFields = requestParams.getArrayFields();
-        String deviceSecret = requestParams.getDeviceSecret();
         String productKey = requestParams.getProductKey();
+
         String topic = requestParams.getTopic();
         String payload = requestParams.getPayload();
+
+        String deviceCode = requestParams.getDeviceCode();
+        String deviceSecret = requestParams.getDeviceSecret();
+
         dataMap.put("deviceCode", deviceCode);
         dataMap.put("secret", deviceSecret);
 
