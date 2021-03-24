@@ -1,25 +1,24 @@
 package com.lighting.dm.utils;
 
 public enum RequestPair {
-    DEVICE_AUTH_URL("device_auth", Constants.DEVICE_AUTH_URL),
-    LIST("list", Constants.GET_DEVICES_LIST_URL),
-    PRODUCT("product", Constants.GET_PRODUCT_LIST_URL),
-    SINGLE("single", Constants.GET_SINGLE_DEVICE_URL),
-    TOPIC("topic", Constants.GET_TOPICS_URL),
-    PUBLISH_TOPIC("publish_topic", Constants.GET_PUBLISH_TOPIC_URL),
+    DEVICE_AUTH("device_auth", Constants.DEVICE_AUTH),
+    DEVICES("devices", Constants.GET_DEVICES),
+    PRODUCTS("product", Constants.GET_PRODUCTS),
+    SINGLE("single", Constants.GET_DEVICE_AUTHS),
+    TOPICS("topic", Constants.GET_TOPICS),
     CUSTOM_API("custom_api", null),
-    THING_MODEL("thingModel", Constants.GET_DEVICE_THING_MODEL_URL);
+    THING_MODEL("thingModel", Constants.GET_THING_MODEL);
 
-    private String type;
+    private String step;
     private String url;
 
-    RequestPair(String type, String url) {
-        this.type = type;
+    RequestPair(String step, String url) {
+        this.step = step;
         this.url = url;
     }
 
-    public String getType() {
-        return type;
+    public String getStep() {
+        return step;
     }
 
     public String getUrl() {

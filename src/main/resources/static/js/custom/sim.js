@@ -40,7 +40,7 @@ $(function () {
         serverUrl = $("#serverUrl").val();
         $.ajax({
             url: "./api/getData",
-            data: {"productId": productId, "serverUrl": serverUrl, "step": "list"},
+            data: {"productId": productId, "serverUrl": serverUrl, "step": "devices"},
             type: "POST",
             dataType: "json",
             success: function (result) {
@@ -235,6 +235,13 @@ $(function () {
                 alert("success!");
             }
         });
+    });
+
+    //payload
+    $("#payload").blur(function(){
+        const content = $("#payload").val();
+        const data= JSON.parse(content);
+        $("#payload").val(JSON.stringify(data, null, 4));
     });
 
 });

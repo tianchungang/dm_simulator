@@ -12,10 +12,11 @@ import com.lighting.dm.utils.RequestPair;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,31 +34,32 @@ public class DmSimController {
     @PostMapping(value = "/api/getData")
     public String getData(String serverUrl, String deviceCode, String productId, String step) throws Exception {
         serverUrl = getServerUrl(serverUrl);
-        if (step.equals(RequestPair.LIST.getType())) {
-            serverUrl += RequestPair.LIST.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, productId);
-        } else if (step.equals(RequestPair.SINGLE.getType())) {
-            serverUrl += RequestPair.SINGLE.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, deviceCode, productId);
-        } else if (step.equals(RequestPair.THING_MODEL.getType())) {
-            serverUrl += RequestPair.THING_MODEL.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, deviceCode);
-        } else if (step.equals(RequestPair.PRODUCT.getType())) {
-            serverUrl += RequestPair.PRODUCT.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, deviceCode);
-        } else if (step.equals(RequestPair.TOPIC.getType())) {
+
+        if (step.equals(RequestPair.PRODUCTS.getStep())) {
+            serverUrl = serverUrl + RequestPair.PRODUCTS.getUrl() + "&deviceCode=" + deviceCode;
+        }
+        if (step.equals(RequestPair.DEVICES.getStep())) {
+            serverUrl = serverUrl + RequestPair.DEVICES.getUrl() + "&productId=" + productId;
+        }
+
+        if (step.equals(RequestPair.SINGLE.getStep())) {
+            serverUrl = serverUrl + RequestPair.SINGLE.getUrl() + "&deviceCode=" + deviceCode + "&productId=" + productId;
+        }
+
+        if (step.equals(RequestPair.THING_MODEL.getStep())) {
+            serverUrl = serverUrl + RequestPair.THING_MODEL.getUrl() + "&deviceCode=" + deviceCode;
+        }
+
+        if (step.equals(RequestPair.TOPICS.getStep())) {
             String productKey = request.getParameter("productKey");
-            serverUrl += RequestPair.TOPIC.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, productId, productKey, deviceCode);
-        } else if (step.equals(RequestPair.CUSTOM_API.getType())) {
+            serverUrl = serverUrl + RequestPair.TOPICS.getUrl() + "&productId=" + productId + "&productKey=" + productKey + "&deviceCode=" + deviceCode;
+        }
+
+        if (step.equals(RequestPair.CUSTOM_API.getStep())) {
             String apiUrl = request.getParameter("apiUrl");
             serverUrl += apiUrl;
-        } else if (step.equals(RequestPair.PUBLISH_TOPIC.getType())) {
-            String topic = request.getParameter("topic");
-            String payload = request.getParameter("payload");
-            serverUrl += RequestPair.PUBLISH_TOPIC.getUrl();
-            serverUrl = MessageFormat.format(serverUrl, topic, payload);
         }
+
         String responseStr = HttpUtils.getHttps(serverUrl);
         log.info(responseStr);
         return responseStr;
@@ -68,7 +70,7 @@ public class DmSimController {
 
         String serverUrl = getServerUrl(requestParams.getServerUrl());
 
-        serverUrl += Constants.DEVICE_AUTH_URL;
+        serverUrl += Constants.DEVICE_AUTH;
 
         HashMap dataMap = new HashMap(2);
 
@@ -130,6 +132,9 @@ public class DmSimController {
     private String getServerUrl(String serverUrl) {
         if (!serverUrl.startsWith("http")) {
             serverUrl = "https://" + serverUrl;
+        }
+        while (serverUrl.endsWith("/")) {
+            serverUrl = serverUrl.substring(0, serverUrl.length() - 1);
         }
         return serverUrl;
     }
