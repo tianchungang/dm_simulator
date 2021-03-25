@@ -200,12 +200,12 @@ $(function () {
     $("#sendMq").click(function () {
         var serverUrl = $("#serverUrl").val();
 
-       /* const apiUrl = $("#apiUrl").val();
-        if (apiUrl == null || apiUrl == '') {
-            $(apiUrl).focus();
-            alert("API URL CAN'T BE NULL!");
-            return;
-        }*/
+        /* const apiUrl = $("#apiUrl").val();
+         if (apiUrl == null || apiUrl == '') {
+             $(apiUrl).focus();
+             alert("API URL CAN'T BE NULL!");
+             return;
+         }*/
 
         const payload = $("#payload").val();
         if (payload == null || payload == '') {
@@ -214,6 +214,10 @@ $(function () {
             return;
         }
         var topic = $("#topics-select").find("option:selected").val();
+        if (topic == "Pls select topics") {
+            alert("TOPIC CAN'T BE NULL!");
+            return;
+        }
         var deviceCode = $("#deviceCode").val();
         var deviceSecret = $("#deviceSecret").val();
         var productKey = $("#product-select").find("option:selected").attr("productKey");
@@ -238,9 +242,9 @@ $(function () {
     });
 
     //payload
-    $("#payload").blur(function(){
+    $("#payload").blur(function () {
         const content = $("#payload").val();
-        const data= JSON.parse(content);
+        const data = JSON.parse(content);
         $("#payload").val(JSON.stringify(data, null, 4));
     });
 
@@ -268,7 +272,7 @@ function loadProduct() {
                         var productStr = "<option selected>Pls select product</option>";
                         for (var i = 0; i < list.length; i++) {
                             var product = list[i];
-                            productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "-(" + product.id + ")-"+ "-(" + product.nodeType + ")-"+ "-(" + product.status + ")-" + "(" + product.productKey + ")-(" + product.deviceCount + ")" + "</option>";
+                            productStr += "<option  data-icon='glyphicon glyphicon-heart' productKey='" + product.productKey + "' value='" + product.id + "'> " + product.productName + "-(" + product.id + ")-" + "-(" + product.nodeType + ")-" + "-(" + product.status + ")-" + "(" + product.productKey + ")-(" + product.deviceCount + ")" + "</option>";
                         }
                         $("#product-select").html(productStr);
                     }
@@ -300,14 +304,14 @@ function loadTopics(serverUrl, productId, productKey, deviceCode) {
                 "productId": productId,
                 "productKey": productKey,
                 "deviceCode": deviceCode,
-                "step": "topic"
+                "step": "topics"
             },
             type: "POST",
             dataType: "json",
             success: function (result) {
                 if (result.success) {
                     var data = result.data;
-                    var topicStr = "<option selected>Pls select topic</option>";
+                    var topicStr = "<option selected>Pls select topics</option>";
                     for (var i = 0; i < data.length; i++) {
                         var topic = data[i];
                         topicStr += "<option  data-icon='glyphicon glyphicon-heart'  topicKey='" + topic.topicKey + "' value='" + topic.topicPath + "'> " + "(" + topic.category + ")->" + topic.topicPath + "</option>";
@@ -320,7 +324,7 @@ function loadTopics(serverUrl, productId, productKey, deviceCode) {
             }
         });
     } else {
-        var productStr = "<option selected>Pls select topics</option>";
+        var productStr = "<option value='-1' selected>Pls select topics</option>";
         $("#topics-select").html(productStr);
     }
 }

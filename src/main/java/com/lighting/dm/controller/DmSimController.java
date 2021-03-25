@@ -6,9 +6,10 @@ import com.lighting.dm.entity.DeviceAttributeData;
 import com.lighting.dm.entity.RequestParams;
 import com.lighting.dm.mqtt.DmMqttRegisterMetaVo;
 import com.lighting.dm.mqtt.Publisher;
-import com.lighting.dm.utils.Constants;
+import com.lighting.dm.request.SimRequest;
+import com.lighting.dm.utils.ApplicationContextHelper;
+import com.lighting.dm.request.Constants;
 import com.lighting.dm.utils.HttpUtils;
-import com.lighting.dm.utils.RequestPair;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,35 +33,9 @@ public class DmSimController {
     private HttpServletRequest request;
 
     @PostMapping(value = "/api/getData")
-    public String getData(String serverUrl, String deviceCode, String productId, String step) throws Exception {
-        serverUrl = getServerUrl(serverUrl);
-
-        if (step.equals(RequestPair.PRODUCTS.getStep())) {
-            serverUrl = serverUrl + RequestPair.PRODUCTS.getUrl() + "&deviceCode=" + deviceCode;
-        }
-        if (step.equals(RequestPair.DEVICES.getStep())) {
-            serverUrl = serverUrl + RequestPair.DEVICES.getUrl() + "&productId=" + productId;
-        }
-
-        if (step.equals(RequestPair.SINGLE.getStep())) {
-            serverUrl = serverUrl + RequestPair.SINGLE.getUrl() + "&deviceCode=" + deviceCode + "&productId=" + productId;
-        }
-
-        if (step.equals(RequestPair.THING_MODEL.getStep())) {
-            serverUrl = serverUrl + RequestPair.THING_MODEL.getUrl() + "&deviceCode=" + deviceCode;
-        }
-
-        if (step.equals(RequestPair.TOPICS.getStep())) {
-            String productKey = request.getParameter("productKey");
-            serverUrl = serverUrl + RequestPair.TOPICS.getUrl() + "&productId=" + productId + "&productKey=" + productKey + "&deviceCode=" + deviceCode;
-        }
-
-        if (step.equals(RequestPair.CUSTOM_API.getStep())) {
-            String apiUrl = request.getParameter("apiUrl");
-            serverUrl += apiUrl;
-        }
-
-        String responseStr = HttpUtils.getHttps(serverUrl);
+    public String getData(String serverUrl, String step) throws Exception {
+        Map<String, SimRequest> beans = ApplicationContextHelper.getApplicationContext().getBeansOfType(SimRequest.class);
+        String responseStr = beans.get(step).exec(request, getServerUrl(serverUrl));
         log.info(responseStr);
         return responseStr;
     }
