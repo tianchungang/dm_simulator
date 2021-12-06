@@ -7,15 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author haoqian.wang@signify.com
- * @date 2021/3/24   14:56
- */
 @Component("single")
 public class DeviceRequest extends SimRequest {
     @Override
     public String getUrl() {
-        return RequestPair.SINGLE.getUrl();
+        return Constants.SINGLE_DEVICE;
     }
 
     @Override

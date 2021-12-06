@@ -1,18 +1,12 @@
 package com.lighting.dm.request;
 
-import com.google.common.base.Joiner;
 import com.lighting.dm.utils.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.MapUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Iterator;
 import java.util.Map;
 
-/**
- * @author haoqian.wang@signify.com
- * @date 2021/3/24   14:54
- */
 @Slf4j
 public abstract class SimRequest {
     /**
@@ -60,7 +54,7 @@ public abstract class SimRequest {
                 }
             }
         }
-        return  "?1=1" + result;
+        return "?1=1" + result;
     }
 
 }

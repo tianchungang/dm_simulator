@@ -7,15 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author haoqian.wang@signify.com
- * @date 2021/3/24   14:56
- */
 @Component("thingModel")
 public class ThingsModelRequest extends SimRequest {
     @Override
     public String getUrl() {
-        return RequestPair.THING_MODEL.getUrl();
+        return Constants.GET_THING_MODEL;
     }
 
     @Override

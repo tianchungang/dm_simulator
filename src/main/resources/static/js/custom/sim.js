@@ -289,7 +289,7 @@ function loadProduct() {
 }
 
 /**
- * 截止Topic
+ * 加载Topic
  * @param serverUrl
  * @param productId
  * @param productKey
@@ -310,14 +310,22 @@ function loadTopics(serverUrl, productId, productKey, deviceCode) {
             dataType: "json",
             success: function (result) {
                 if (result.success) {
-                    var data = result.data;
                     var topicStr = "<option selected>Pls select topics</option>";
+
+                    // v2
+                    // var data = result.data.list;
+                    // for (var i = 0; i < data.length; i++) {
+                    //     var topic = data[i];
+                    //     topicStr += "<option  data-icon='glyphicon glyphicon-heart'  topicKey='" + topic.topicKey + "' value='" + topic.topicPath + "'> " + "(" + topic.topicType + ")->" + topic.topicPath + "</option>";
+                    // }
+
+                    var data = result.data;
                     for (var i = 0; i < data.length; i++) {
                         var topic = data[i];
                         topicStr += "<option  data-icon='glyphicon glyphicon-heart'  topicKey='" + topic.topicKey + "' value='" + topic.topicPath + "'> " + "(" + topic.category + ")->" + topic.topicPath + "</option>";
                     }
-                    $("#topics-select").html(topicStr);
 
+                    $("#topics-select").html(topicStr);
                 } else {
                     alert(responseData.message);
                 }
